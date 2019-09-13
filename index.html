@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/query.css">
+</head>
+<body>
+<div id="app">
+    <header>
+    	<h1>{{ domain }}</h1>
+    	<a v-for="link in links" :class="{ link_ativo: linkAtivo.name == link.name}" @click="acessLink(link)"> {{ link.name }} </a>
+    </header>
+
+    <main v-if="linkAtivo.name == 'Home'">
+    	<div class="background"></div>
+    	<div class="what box white">
+    		<h1>Qual seu nickname em League of Legends</h1>
+    		<input type="" v-model="user.nickname" name="" placeholder="What is your nickname?">
+    		<div class="suggestion white animate" v-if="!user.nickname == '' || !user.nickname == null">
+    			<p>O nome {{ user.nickname }} está correto?</p>
+    		</div>
+    		<div class="tabs">
+    			<a>Buscas recentes</a>
+    		</div>
+    	</div>
+    </main>
+
+</div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+<script  src="./scripts/index.js"></script>
+
+</body>
+</html>

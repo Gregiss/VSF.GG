@@ -1,0 +1,151 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+:root{
+	--blue : #5383e8;
+}
+
+body,html{
+	font-family: 'Ubuntu', sans-serif;
+	background: #232323;
+	color: #fff;
+}
+
+.background{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-image: url('http://lol-wallpapers.com/wp-content/uploads/2016/12/Bard-Promo-Background-League-of-Legends-Artwork-Wallpaper-lol.jpg');
+	left: 0px;
+	top: 0px;
+	background-blend-mode: overlay | soft-light | multiply | hard-light | lighten | luminosity;
+}
+
+.background::after{
+	content: '';
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.60);
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	background-blend-mode: overlay | soft-light | multiply | hard-light | lighten | luminosity;
+}
+
+header{
+	position: fixed;
+	width: 100%;
+	height: auto;
+	padding: calc(2rem - 10px);
+	font-size: calc(1.7rem - 4px);
+	background: var(--blue);
+	display: flex;
+	color: #fff;
+	z-index: 2000;
+}
+
+header a{
+	margin: 10px 20px;
+	cursor: pointer;
+	padding: 5px;
+	position: relative;
+	top: 32px;
+	left: 30px;
+}
+
+.link_ativo{
+	border-bottom: 4px solid #fff;
+}
+
+main{
+	position: relative;
+	top: 150px;
+	padding: 20px	;
+}
+
+.what input{
+	width: calc(100% - 10px);
+	border: none;
+	outline: none;
+	padding: calc(2vw - 20px);
+	margin-top: 0px;
+	padding: 10px;
+	margin-top: 20px;
+	font-size: calc(2.3em - 18px);
+}
+
+.what input:focus{
+	border-bottom: 2px solid var(--blue);
+}
+
+.box{
+	box-sizing: border-box;
+	max-width: 400px;
+	position: relative;
+	margin: 0px auto;
+	height: auto;
+	padding: 45px;
+}
+
+.white{
+	background: #fff;
+	color: #151515;
+}
+
+h1{
+	font-size: calc(2em - 1rem + 5px);
+}
+
+.what .tabs{
+	width: 100%;
+	position: absolute;
+	background: var(--blue);
+	padding: 10px 0px 10px;
+	left: 0px;
+	bottom: 0px;
+	color: #fff;
+}
+
+.what a{
+	text-transform: uppercase;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.suggestion{
+	transform: translateY(40px);
+	top: 30px;
+}
+
+.animate{
+	-webkit-animation-name: bounce; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.5s; /* Safari 4.0 - 8.0 */
+  animation-name: bounce;
+  animation-duration: 0.5s;
+}
+
+@-webkit-keyframes bounce {
+  0% {transform : translateY(10px)}
+  100% {transform: translateY(40px)}
+}
+
+.suggestion{
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: 160px;
+	left: 0px;
+	z-index: 100;
+}
+
+p{
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+.suggestion p{
+	margin: 10px;
+}
