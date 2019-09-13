@@ -1,5 +1,6 @@
 @media screen and (max-width: 480px){
 	header a{
 		left: -25vw;
+		top: 45px;
 	}
 }
