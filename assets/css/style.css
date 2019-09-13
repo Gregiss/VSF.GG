@@ -13,6 +13,50 @@ body,html{
 	color: #fff;
 }
 
+body, html{
+    width:100%;
+    height:100%;
+    font-family:'Ebrima';
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Chrome/Safari/Opera */
+       -khtml-user-select: none; /* Konqueror */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none;
+    -webkit-font-smoothing: antialiased !important;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+ }
+
+::-webkit-scrollbar {
+    width: 14px;
+    z-index: 10000;
+}
+::-webkit-scrollbar:hover{
+   -webkit-transition: 0.7s ease-in;
+    -moz-transition: 0.7s ease-in;
+    -o-transition: 0.7s ease-in;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 10000;	
+}
+::-webkit-scrollbar-thumb {
+   height: 6px;
+   border: 4px solid rgba(0, 0, 0, 0);
+   background-clip: padding-box;
+   -webkit-border-radius: 7px;
+   background-color: rgba(178, 178, 178, 0.7);
+   z-index: 10000;
+}
+::-webkit-scrollbar-button{
+   width: 0;
+   height: 0;
+   display: block;
+   z-index: 10000;
+}
+::-webkit-scrollbar-corner {
+   background-color: transparent;
+}
+
+
 .background{
 	position: fixed;
 	width: 100%;
@@ -43,7 +87,7 @@ header{
 	font-size: calc(1.7rem - 4px);
 	display: flex;
 	color: #fff;
-	z-index: 2000;
+	z-index: 4000;
 }
 
 header a{
@@ -62,7 +106,8 @@ header a{
 main{
 	position: relative;
 	top: 150px;
-	padding: 20px	;
+	padding: 20px;
+	z-index: 200;
 }
 
 .what input{
