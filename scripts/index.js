@@ -7,7 +7,8 @@ var app = new Vue({
         ],
         linkAtivo: { "name": "Home", "ativo": true},
         domain: "VSF.GG",
-        user: {"nickname" : null}
+        user: {"nickname" : null},
+        logged: false
     },
     mounted() {
         document.title = this.domain
@@ -22,6 +23,16 @@ var app = new Vue({
             this.links[index].ativo = true
             this.linkAtivo = this.links[index]
             document.title = "VSF.GG |" + " " + link.name
+        },
+        changeNickName(){
+            if(this.user.nickname == '' || this.user.nickname == null)
+            {
+                 this.logged = false
+            }
+            else{
+                this.logged = true
+            }
         }
     }
+
 })

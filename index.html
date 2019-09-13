@@ -18,14 +18,20 @@
 
     <main v-if="linkAtivo.name == 'Home'">
     	<div class="background"></div>
-    	<div class="what box white">
+    	<div class="what box white" v-if="!logged">
     		<h1>Qual seu nickname em League of Legends</h1>
-    		<input type="" v-model="user.nickname" name="" placeholder="What is your nickname?">
+    		<input type="" v-model="user.nickname" name="" placeholder="What is your nickname?" v-on:keyup.enter="changeNickName">
     		<div class="suggestion white animate" v-if="!user.nickname == '' || !user.nickname == null">
     			<p>O nome {{ user.nickname }} está correto?</p>
     		</div>
     		<div class="tabs">
     			<a>Buscas recentes</a>
+    		</div>
+    	</div>
+    	<div v-else="">
+    		<div class="what box white">
+    		<h1>Olá {{ user.nickname }}</h1>
+    		<p>Nosso site está em construção</p>
     		</div>
     	</div>
     </main>

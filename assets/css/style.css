@@ -196,3 +196,8 @@ p{
 .suggestion p{
 	margin: 10px;
 }
+
+.box p{
+	font-size: 21px;
+	padding: 10px;
+}
