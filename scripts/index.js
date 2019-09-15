@@ -40,7 +40,7 @@ var app = new Vue({
                         "crossDomain": "true"
                 }
             }
-            axios.get("http://vsf-gg.umbler.net/v1/" + url, axiosConfig)
+            axios.get("https://vsf-gg.umbler.net/v1/" + url, axiosConfig)
             .then((res) => {
                 if(this.type == 0){
                     if(res.data == ''){
