@@ -9,11 +9,16 @@ var app = new Vue({
         domain: "VSF.GG",
         user: {"nickname" : null},
         logged: false,
-        api: "RGAPI-4047f1e0-4555-42e9-9423-465b734b71ee"
+        user_vendo: {"name" : ''},
+        type: 0,
+        avatar_vendo: "",
+        recentes_users: [],
+        loading_data: false,
+        me: {"name" : ''},
     },
     mounted() {
         document.title = this.domain
-        //this.post("https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/vsf%20alek%20vs?api_key=" + this.api)
+        this.recentes_users = localStorage.recentes_user ? JSON.parse(localStorage.recentes_users): []
         
     },
     methods: {
@@ -28,9 +33,34 @@ var app = new Vue({
             document.title = "VSF.GG |" + " " + link.name
         },
         post(url){
-            axios.get(url)
+            var region = "br1"
+            let axiosConfig = {
+                headers: {
+                        "Access-Control-Allow-Origin": "*",
+                        "crossDomain": "true"
+                }
+            }
+            axios.get("http://vsf-gg.umbler.net/v1/" + url, axiosConfig)
             .then((res) => {
-                console.log("RESPONSE RECEIVED: ", res);
+                if(this.type == 0){
+                    if(res.data == ''){
+                        this.user_vendo = "not_found"
+                    } else{
+                    this.user_vendo = res.data;
+                    this.logged = true
+                    this.avatar_vendo = "https://opgg-static.akamaized.net/images/profile_icons/profileIcon"+ res.data.profileIconId + ".jpg"
+                    this.recentes_users.push(res.data)
+                    localStorage.recentes_users = JSON.stringify(this.recentes_users)
+                    document.title = this.res.data.name + " VSF.GG"
+                    this.loading_data = false
+                }
+                } else if(this.type == 1){
+                    this.user_vendo = res.data;
+                    this.logged = true
+                    this.avatar_vendo = "https://opgg-static.akamaized.net/images/profile_icons/profileIcon"+ res.data.profileIconId + ".jpg"
+                    document.title = this.res.data.name + " VSF.GG"
+                    this.loading_data = false
+                }
             })
             .catch((err) => {
             console.log("AXIOS ERROR: ", err);
@@ -39,12 +69,36 @@ var app = new Vue({
         changeNickName(){
             if(this.user.nickname == '' || this.user.nickname == null)
             {
-                 this.logged = false
-                 this.post("https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/kaway404?api_key=" + this.api)
+                 this.logged = false   
             }
             else{
-                this.logged = true
+                this.type = 0
+                this.loading_data = true
+                this.post("summoner/" + this.user.nickname)
             }
+        },
+        tryAgain(){
+            this.logged = false
+            this.user_vendo = {"name" : ''}
+            this.loading_data = false
+            this.user.nickname = ''
+        },
+        inicio(){
+            this.logged = false
+            this.user_vendo = {"name" : ''}
+            this.loading_data = false
+            this.user.nickname = ''
+        },
+        limparRecentes(){
+            this.recentes_users = []
+            this.loading_data = false
+            localStorage.recentes_users = JSON.stringify(this.recentes_users)
+            this.user.nickname = ''
+        },
+        acess(user){
+            this.type = 1
+            this.loading_data = true
+            this.post("summoner/" + user.name)
         }
     }
 

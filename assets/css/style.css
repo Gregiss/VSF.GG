@@ -9,7 +9,7 @@
 
 body,html{
 	font-family: 'Ubuntu', sans-serif;
-	background: #232323;
+	background: #f1f1f1;
 	color: #fff;
 }
 
@@ -88,6 +88,11 @@ header{
 	display: flex;
 	color: #fff;
 	z-index: 4000;
+	background: var(--blue);
+}
+
+header h1{
+	cursor: pointer;
 }
 
 header a{
@@ -95,7 +100,7 @@ header a{
 	cursor: pointer;
 	padding: 5px;
 	position: relative;
-	top: -12px;
+	top: 33px;
 	left: 30px;
 }
 
@@ -163,29 +168,17 @@ h1{
 }
 
 .suggestion{
-	transform: translateY(40px);
-	top: 30px;
-}
-
-.animate{
-	-webkit-animation-name: bounce; /* Safari 4.0 - 8.0 */
-  -webkit-animation-duration: 0.5s; /* Safari 4.0 - 8.0 */
-  animation-name: bounce;
-  animation-duration: 0.5s;
-}
-
-@-webkit-keyframes bounce {
-  0% {transform : translateY(10px)}
-  100% {transform: translateY(40px)}
-}
-
-.suggestion{
 	position: absolute;
 	width: 100%;
 	height: auto;
-	top: 160px;
+	top: 215px;
 	left: 0px;
 	z-index: 100;
+}
+
+.suggestion a{
+	color: #151515;
+	font-size: 17px;
 }
 
 p{
@@ -200,4 +193,142 @@ p{
 .box p{
 	font-size: 21px;
 	padding: 10px;
+}
+
+.show_info{
+	color: #151515;
+}
+
+.relative{
+	max-width: 900px;
+	margin: 0px auto;
+	position: relative;
+}
+
+.show_info h1, img{
+	display: flex;
+	padding: 10px;
+}
+
+.avatar{
+	width: 140px;
+    height: 140px;
+}
+
+.level{
+	width: 40px;
+    font-size: 15px;
+    text-align: center;
+    color: #f1f1f1;
+    background: #5383e8;
+    border-radius: 10px 10px;
+    top: 4px;
+    position: absolute;
+}
+
+.show_info .tabs{
+	background: #5383e8;
+    width: 100%;
+    position: relative;
+    padding: 19px;
+    margin-top: 26px;
+    color: #fff;
+}
+
+.show_info .tabs a{
+	background: rgba(0,0,0,.40);
+	padding: 19px;
+	cursor: pointer;
+}
+
+button{
+	border: none;
+    outline: none;
+    background: var(--blue);
+    color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.loading{
+	width: 100%;
+	background: var(--blue);
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	-webkit-animation: fadeInFromNone 0.5s ease-out;
+    -moz-animation: fadeInFromNone 0.5s ease-out;
+    -o-animation: fadeInFromNone 0.5s ease-out;
+    animation: fadeInFromNone 0.5s ease-out;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
 }
