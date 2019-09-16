@@ -1,0 +1,12 @@
+{
+  "db": {
+    "name": "mongodb",
+    "connector": "mongodb"
+  },
+  "VSFGG": {
+    "name": "VSFGG",
+    "localStorage": "vsfgg",
+    "file": "",
+    "connector": "mongodb"
+  }
+}
